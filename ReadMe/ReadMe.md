@@ -1,8 +1,3 @@
-
-# Project Title
-
-A brief description of what this project does and who it's for
-
 # C4009143 ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING 1
 
 ## 1. Overview
@@ -173,7 +168,7 @@ All constants are defined in Config.py. Key settings:
  
 Sheffield collisions show a clear downward trend from approximately 1,900 per year in 1998 to under 800 by 2021. This long-term decline is captured by the Simple Linear Regression model (R2 = 0.93).
  
-![Collisions by Year](readme_images/eda_year.png)
+![Collisions by Year](ReadMe/Figure_3.png)
  
 ---
  
@@ -181,7 +176,7 @@ Sheffield collisions show a clear downward trend from approximately 1,900 per ye
  
 Two distinct peaks are visible — a morning rush hour peak around 8am and a larger afternoon peak between 15:00 and 17:00. This pattern directly motivated the `is_rush_hour` engineered feature.
  
-![Collisions by Hour](readme_images/eda_hour.png)
+![Collisions by Hour](ReadMe/Figure_4.png)
  
 ---
  
@@ -189,7 +184,7 @@ Two distinct peaks are visible — a morning rush hour peak around 8am and a lar
  
 Collisions are slightly higher in autumn and winter months (October to January) and lowest in August. November is the most dangerous month, likely due to darker evenings and worsening road conditions.
  
-![Collisions by Month](readme_images/eda_month.png)
+![Collisions by Month](ReadMe/Figure_5.png)
  
 ---
  
@@ -197,7 +192,7 @@ Collisions are slightly higher in autumn and winter months (October to January) 
  
 The majority of collisions occur in fine weather (code 1) simply because that is when most driving takes place. Rain (code 2) is the second most common condition. All weather codes with bad conditions (2, 3, 5, 6, 7) are grouped into the `is_bad_weather` engineered feature.
  
-![Severity by Weather](readme_images/eda_weather_filtered.png)
+![Severity by Weather](ReadMe/Figure_6.png)
  
 ---
  
@@ -205,7 +200,7 @@ The majority of collisions occur in fine weather (code 1) simply because that is
  
 Most collisions occur in daylight (code 1). Dark with street lighting (code 4) is the second highest, reflecting Sheffield's urban road network. Codes 5, 6 and 7 represent increasingly dark conditions with minimal lighting and appear mainly on rural outskirts.
  
-![Severity by Light](readme_images/eda_light.png)
+![Severity by Light](ReadMe/Figure_7.png)
  
 ---
  
@@ -213,7 +208,7 @@ Most collisions occur in daylight (code 1). Dark with street lighting (code 4) i
  
 All 30,932 collisions plotted by GPS coordinates and coloured by severity. Sheffield's road network is clearly visible — the dense city centre hotspot and major arterial routes radiating outward. Fatal collisions (red) are sparse and scattered, Serious (orange) follow main roads, Slight (blue) dominate everywhere.
  
-![Collision Location Map](readme_images/eda_location.png)
+![Collision Location Map](ReadMe/Figure_8.png)
  
 ---
 ## 8. Example Output
@@ -222,7 +217,7 @@ All 30,932 collisions plotted by GPS coordinates and coloured by severity. Sheff
  
 The multiclass Decision Tree uses class_weight=balanced to compensate for the severe class imbalance. The model correctly identifies 31 Fatal and 455 Serious collisions but over-predicts Fatal due to the balancing.
  
-![Confusion Matrix Multiclass](readme_images/cm_multiclass.png)
+![Confusion Matrix Multiclass](ReadMe/Figure_31.png)
  
 ---
  
@@ -230,7 +225,7 @@ The multiclass Decision Tree uses class_weight=balanced to compensate for the se
  
 With class_weight=balanced applied, did_police_officer_attend_scene_of_accident and speed_limit are the most important features, making intuitive sense as police attend more serious incidents and higher speeds correlate with severity.
  
-![Feature Importance Balanced](readme_images/feature_importance_balanced.png)
+![Feature Importance Balanced](ReadMe/Figure_34.png)
  
 ---
  
@@ -238,15 +233,14 @@ With class_weight=balanced applied, did_police_officer_attend_scene_of_accident 
  
 Without class balancing, did_police_officer_attend_scene_of_accident (48%) and number_of_vehicles (41%) dominate but the model only predicts Slight for everything.
  
-![Feature Importance Unbalanced](readme_images/feature_importance_unbalanced.png)
- 
+![Feature Importance Unbalanced](ReadMe/Figure_14.png)
 ---
  
 ### Classification - Decision Tree Binary Confusion Matrix
  
 Binary classification of Urban vs Rural achieves 94.4% accuracy. The model correctly identifies 5,663 urban collisions but struggles with rural (only 176 of 498 correct) due to class imbalance.
  
-![Confusion Matrix Binary](readme_images/cm_binary_2.png)
+![Confusion Matrix Binary](ReadMe/Figure_32.png)
  
 ---
  
@@ -254,7 +248,7 @@ Binary classification of Urban vs Rural achieves 94.4% accuracy. The model corre
  
 Categorical classification of junction type achieves 78% accuracy. Category 0 (not at junction) performs well at 98% but minority junction types score poorly.
  
-![Confusion Matrix Categorical](readme_images/cm_categorical_2.png)
+![Confusion Matrix Categorical](ReadMe/Figure_33.png)
  
 ---
  
@@ -262,7 +256,7 @@ Categorical classification of junction type achieves 78% accuracy. Category 0 (n
  
 Simple Linear Regression on annual collision counts achieves R2 = 0.93. Sheffield sees a clear downward trend of approximately 55 fewer collisions per year driven by road safety improvements.
  
-![Simple Linear Regression](readme_images/simple_linear.png)
+![Simple Linear Regression](ReadMe/Figure_35.png)
  
 ---
  
@@ -270,7 +264,7 @@ Simple Linear Regression on annual collision counts achieves R2 = 0.93. Sheffiel
  
 Predicting number of casualties from 22 road and environmental features. Low R2 (0.07) is expected - the vast majority of collisions result in exactly one casualty regardless of conditions.
  
-![Multiple Linear Regression](readme_images/multiple_linear.png)
+![Multiple Linear Regression](ReadMe/Figure_36.png)
  
 ---
  
@@ -278,7 +272,7 @@ Predicting number of casualties from 22 road and environmental features. Low R2 
  
 Polynomial regression (degree=2 selected as best) for predicting number of vehicles involved. Low R2 (0.04) shows that environmental features alone cannot reliably predict vehicle counts.
  
-![Polynomial Regression](readme_images/polynomial.png)
+![Polynomial Regression](ReadMe/Figure_37.png)
  
 ---
  
@@ -286,7 +280,7 @@ Polynomial regression (degree=2 selected as best) for predicting number of vehic
  
 The elbow method shows no sharp bend, indicating collisions do not form strongly separated natural groups. This is typical for real-world road collision data.
  
-![Elbow Method](readme_images/elbow.png)
+![Elbow Method](ReadMe/Figure_38.png)
  
 ---
  
@@ -294,7 +288,7 @@ The elbow method shows no sharp bend, indicating collisions do not form strongly
  
 Silhouette scores across k=2 to k=10 confirm k=2 as the optimal number of clusters (score = 0.40).
  
-![Silhouette Score](readme_images/silhouette.png)
+![Silhouette Score](ReadMe/Figure_39.png)
  
 ---
  
@@ -302,7 +296,7 @@ Silhouette scores across k=2 to k=10 confirm k=2 as the optimal number of cluste
  
 K-Means clusters (k=2) projected onto 2D via PCA. Cluster 0 represents lower speed urban collisions (~31mph average), Cluster 1 represents higher speed rural collisions (~50mph average).
  
-![K-Means PCA](readme_images/kmeans_pca.png)
+![K-Means PCA](ReadMe/Figure_40.png)
  
 ---
  
@@ -310,7 +304,7 @@ K-Means clusters (k=2) projected onto 2D via PCA. Cluster 0 represents lower spe
  
 Five geographic zones identified across Sheffield using K-Means on latitude and longitude. The red cluster in the centre shows the dense city centre hotspot.
  
-![Geographic Clusters](readme_images/geographic_clusters.png)
+![Geographic Clusters](ReadMe/Figure_41.png)
  
 ---
  
@@ -318,7 +312,7 @@ Five geographic zones identified across Sheffield using K-Means on latitude and 
  
 DBSCAN over-clusters this dataset (317+ clusters) due to many collisions sharing identical encoded condition values. Documented as a known limitation.
  
-![DBSCAN Clusters](readme_images/dbscan.png)
+![DBSCAN Clusters](ReadMe/Figure_42.png)
  
 ---
  
@@ -326,7 +320,7 @@ DBSCAN over-clusters this dataset (317+ clusters) due to many collisions sharing
  
 17 of 20 components are needed to retain 95% of variance, showing that the classification features are relatively uncorrelated with each other. Decision Tree accuracy improves slightly with PCA applied (84.1% vs 83.4%).
  
-![PCA Variance](readme_images/pca_variance.png)
+![PCA Variance](ReadMe/Figure_43.png)
  
 ---
  
@@ -334,7 +328,7 @@ DBSCAN over-clusters this dataset (317+ clusters) due to many collisions sharing
  
 Model accuracy comparison against the 80% target. Most models exceed the target. Decision Tree categorical (78%) falls slightly below due to minority class difficulty.
  
-![Classification Accuracy](readme_images/classification_accuracy.png)
+![Classification Accuracy](ReadMe/Figure_46.png)
  
 ---
  
@@ -342,7 +336,7 @@ Model accuracy comparison against the 80% target. Most models exceed the target.
  
 Simple Linear Regression achieves R2 = 0.93. Multiple Linear and Polynomial score low as casualties and vehicles are difficult to predict from road conditions alone.
  
-![Regression R2](readme_images/regression_r2.png)
+![Regression R2](ReadMe/Figure_47.png)
  
 ---
  
@@ -350,7 +344,7 @@ Simple Linear Regression achieves R2 = 0.93. Multiple Linear and Polynomial scor
  
 Both K-Means models score below the 0.5 threshold, reflecting the naturally overlapping nature of road collision condition groups.
  
-![Clustering Silhouette](readme_images/clustering_silhouette.png)
+![Clustering Silhouette](ReadMe/Figure_48.png)
  
 ---
  
@@ -358,7 +352,7 @@ Both K-Means models score below the 0.5 threshold, reflecting the naturally over
  
 The severe imbalance between Slight (83.7%), Serious (15.4%) and Fatal (0.9%) collisions directly impacts model performance on minority classes and is a key ethical consideration.
  
-![Class Distribution](readme_images/class_distribution.png)
+![Class Distribution](ReadMe/Figure_44.png)
  
 ---
  
